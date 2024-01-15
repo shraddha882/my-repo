@@ -1,0 +1,20 @@
+<!-- verify.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container pt-4">
+    <div class="col-lg-5 shadow p-0 mx-auto">
+      <div class="alert alert-success">Verify OTP</div>
+      <div class="p-4" style="background-color: rgb(11, 11, 53); color: white;">
+        <form action="/verify/" method="post" class="verify-form">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="otp">Enter OTP</label>
+            <input type="text" class="form-control" name="otp" id="otp" placeholder="Enter OTP" required>
+          </div>
+          <button type="submit" class="btn btn-success mt-4">Verify OTP</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

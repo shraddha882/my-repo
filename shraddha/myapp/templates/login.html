@@ -1,0 +1,37 @@
+ 
+{% extends 'base.html'%}
+ 
+
+
+{% block content%}
+ 
+<div class="container pt-4">
+    <div class="col-lg-5 shadow p-0 mx-auto">
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+        <div class="alert alert-success">Login here</div>
+        <div class="p-4" style="background-color: rgb(17, 17, 54); color: white;">
+            <form action="/login/" method="post" class="signup-form" >
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Email</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="password1">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                </div>
+                 
+                <button type="submit" class="btn btn-success mt-4">login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
